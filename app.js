@@ -70,12 +70,12 @@ const app = express();
 
 // app.use(cors());
 const corsOptions = {
-  origin: "https://aya364.github.io/competitorSomostaReact/", // Use the full URL of your React app on GitHub Pages
+  origin: "https://aya364.github.io/competitorSomostaReact", // Use the full URL of your React app on GitHub Pages
   methods: "GET,POST,PUT,DELETE,OPTIONS",
   allowedHeaders: "Content-Type,Authorization",
 };
 
-app.use(cors(corsOptions)); // Apply CORS middleware
+app.use(cors(corsOptions)); 
 
 
 
