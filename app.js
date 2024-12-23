@@ -67,8 +67,6 @@ require("dotenv").config();
 const bodyParser = require("body-parser");
 
 const app = express();
-
-// app.use(cors());
 const corsOptions = {
   origin: "https://aya364.github.io/competitorSomostaReact", 
   methods: "GET,POST,PUT,DELETE,OPTIONS",

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const User = require('./models/User');
 
-mongoose.connect('mongodb://localhost:27017/quran_competition', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const users = [
   { username: 'aya ashraf', password: '1234' },
