@@ -55,7 +55,7 @@
 
 
 
-
+// competitorsomostanode-production-1a56.up.railway.app
 
 
 
@@ -70,12 +70,13 @@ const app = express();
 
 // app.use(cors());
 const corsOptions = {
-  origin: "https://aya364.github.io/competitorSomostaReact", // Use the full URL of your React app on GitHub Pages
+  origin: "https://aya364.github.io/competitorSomostaReact", 
   methods: "GET,POST,PUT,DELETE,OPTIONS",
   allowedHeaders: "Content-Type,Authorization",
 };
 
-app.use(cors(corsOptions)); 
+app.use(cors(corsOptions));
+
 
 
 
@@ -83,8 +84,24 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
+
+
 // MongoDB Connection
-mongoose.connect("mongodb://localhost:27017/quran_competition", {
+// mongoose.connect("mongodb://localhost:27017/quran_competition", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+
+// const db = mongoose.connection;
+// db.on("error", console.error.bind(console, "Connection error:"));
+// db.once("open", () => {
+//   console.log("Connected to MongoDB");
+// });
+
+
+// MongoDB Connection
+
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -92,8 +109,11 @@ mongoose.connect("mongodb://localhost:27017/quran_competition", {
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Connection error:"));
 db.once("open", () => {
-  console.log("Connected to MongoDB");
+  console.log("Connected to MongoDB Atlas");
 });
+
+
+
 
 const UserSchema = new mongoose.Schema({
   username: String,
